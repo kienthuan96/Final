@@ -30,12 +30,12 @@ public class AdminActivity extends AppCompatActivity {
 
         dbHelper = new DBManager(AdminActivity.this);
         arrBus= new ArrayList<Bus>();
-        //dbHelper.addBus(new Bus("01","Chợ lớn - Bến thành"));
+        //dbHelper.addBus(new Bus("02","Mien Tay - Bến thành"));
         arrBus=dbHelper.getAllBus();
         //Toast.makeText(AdminActivity.this,"Thanh cong",Toast.LENGTH_LONG).show();
 
 
-        Toast.makeText(AdminActivity.this,"Du lieu: "+arrBus.get(0).getTenXe(),Toast.LENGTH_LONG).show();
+        Toast.makeText(AdminActivity.this,"Du lieu: "+arrBus.get(1).getTenXe(),Toast.LENGTH_LONG).show();
     }
 
     private void id() {
