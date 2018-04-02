@@ -16,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+   setContentView(R.layout.activity_main);
+   //     setContentView(R.layout.activity_tracuutuyenxe);
 
 
     }
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 temp="Tram xe bus";
                 break;
             case R.id.menu_giave:
-                temp="Gia ve";
+                temp="Giá Vé ";
+                Intent intent1=new Intent(MainActivity.this, BangGiaVeActivity.class);
+                startActivity(intent1);
                 break;
             case R.id.menu_timkiem:
                 temp="Tìm Kiếm";
