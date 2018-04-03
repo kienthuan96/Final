@@ -15,9 +15,7 @@ public class btnBangGiaVe_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_banggiavexe); //fix Bug
-
-
+        setContentView(R.layout.activity_banggiavexe);
         viewFlipper =(ViewFlipper)findViewById(R.id.viewAnh);
         viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);

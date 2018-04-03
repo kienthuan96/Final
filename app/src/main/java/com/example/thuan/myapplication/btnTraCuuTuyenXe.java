@@ -11,12 +11,12 @@ public class btnTraCuuTuyenXe extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tracuutuyenxe); //fix Bug
-
+        setContentView(R.layout.activity_tracuutuyenxe);
 
         viewFlipper = (ViewFlipper) findViewById(R.id.viewAnh1);
         viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
+
        // Boolean isAutoStart = viewFlipper.isAutoStart();
     }
     @Override
