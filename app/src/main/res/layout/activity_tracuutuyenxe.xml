@@ -35,6 +35,7 @@
             </ViewFlipper>
 
             <LinearLayout
+
                 android:orientation="vertical"
                 android:background="#19b30b"
                 android:layout_width="match_parent"
@@ -51,14 +52,58 @@
 
 
                     />
+                <LinearLayout
 
+                    android:background="#d1b800"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="ID"
+                        android:textSize="18dp"
+                        android:textAlignment="center"
 
-
-
-                    <ListView
-                        android:id="@+id/listViewTuyenXe"
+                        />
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Hình Thức"
+                        android:textSize="18dp"
+                        android:textAlignment="center"
+                        />
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="Đối tượng "
+                        android:textSize="18dp"
+                        android:textAlignment="center"/>
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Giá vé "
+                        android:textSize="18dp"
+                        android:textAlignment="center"/>
+                    <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="wrap_content"
+                        android:text="C.Dài(km)"
+                        android:textSize="18dp"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+
+
+
+
+                <ListView
+                        android:id="@+id/listViewTuyenXe"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+
+                    />
 
 
             </LinearLayout>

@@ -1,62 +1,78 @@
 package com.example.thuan.myapplication;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TabHost;
-import android.widget.ViewFlipper;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class btnBangGiaVe_Activity extends AppCompatActivity {
+//Ánh xạ DB Bang Gia Ve qua Class để hiển thị dữ liệu lên
 
-    private ViewFlipper viewFlipper;
-    private TabHost tabHost;
+    //Khai báo hàm sử dụng DATABASE
+    //Khai báo dữ liệu Class
+    ArrayList<class_BangGiaVeXeMienPhi> listMP;
+    final String DATABASE_NAME = "list_bus1.sqlite";
+    SQLiteDatabase database_BangGiaXeMienPhi;
+     private  ListView listViewMienPhi;
+    Adapter_BangGiaVeMP  adapterMP;
+
+
+
+
+
+    //Tạo dữ liệu
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banggiavexe);
-        viewFlipper =(ViewFlipper)findViewById(R.id.viewAnh);
-        viewFlipper.setFlipInterval(3000);
-        viewFlipper.setAutoStart(true);
 
-        //Cài đặt Tab Host để sử dụng
-        TabHost host = (TabHost)findViewById(R.id.tabHost);
-        host.setup();
+        // Khai đỗ dữ liệu từ Dataabse sang màn hình
+        KhoiTao();
+       readData();
 
-        //Tab 1
-        TabHost.TabSpec spec = host.newTabSpec("PHỔ THÔNG");
-        spec.setContent(R.id.tab1);
-        spec.setIndicator("PHỔ THÔNG ");
-        host.addTab(spec);
-
-        //Tab 2
-        spec = host.newTabSpec("ĐƯỜNG DÀI" );
-        spec.setContent(R.id.tab2);
-
-        spec.setIndicator("ĐƯỜNG DÀI ");
-        host.addTab(spec);
-        //Tab 3
-        spec = host.newTabSpec("LƯU Ý");
-        spec.setContent(R.id.tab3);
-        spec.setIndicator("LƯU Ý");
-        host.addTab(spec);
     }
+    //Xây dựng phương thức khởi tạo
+    private void KhoiTao(){
+        listViewMienPhi = (ListView) findViewById(R.id.listViewMienPhi);
+        listMP = new ArrayList<>();
+        adapterMP = new Adapter_BangGiaVeMP(this,listMP);
+        listViewMienPhi.setAdapter(adapterMP);
 
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Xử lý thanh công cụ mục nhấp vào đây. Thanh tác vụ sẽ
-        // tự động xử lý các nhấp chuột vào nút Home / Up, do đó, dài
-        // khi bạn chỉ định hoạt động của cha mẹ trong AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //không kiểm tra
-        if (id == R.id.always) {
-            return true;
+    }
+    private void readData(){
+        database_BangGiaXeMienPhi = DBBangGiaXe.initDatabase(this,DATABASE_NAME);
+        Cursor cursor = database_BangGiaXeMienPhi.rawQuery("SELECT * FROM MIENPHI_GIAVE ", null);
+        listMP.clear();
+        //Chạy vòng for để aadd dữ liệu
+        for(int i = 0 ; i<cursor.getCount();i++){
+            cursor.moveToPosition(i);
+            int id= cursor.getInt(0);
+            String ten  = cursor.getString(1);
+            String moTa = cursor.getString(2);
+            listMP.add(new class_BangGiaVeXeMienPhi(id,ten,moTa));
         }
+        adapterMP.notifyDataSetChanged();
+        // cursor.moveToFirst();
+        //Toast.makeText(this ,cursor.getString(1),Toast.LENGTH_SHORT ).show();
 
-        return super.onOptionsItemSelected(item);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

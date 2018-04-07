@@ -46,7 +46,7 @@ public class BangGiaVeActivity  extends AppCompatActivity {
 
 
         Context context = getApplicationContext();
-        CharSequence text = "CHUYỂN ĐẾN BẢNG GIÁ VÉ  !";
+        CharSequence text = "CHUYỂn ĐẾN ƯU TIÊN - MIỄN PHÍ  !";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
@@ -59,7 +59,7 @@ public class BangGiaVeActivity  extends AppCompatActivity {
 
 
         Context context = getApplicationContext();
-        CharSequence text = "CHUYỂN ĐẾN TRA CỨU TUYẾN XE  !";
+        CharSequence text = "CHUYỂN ĐẾN BẢNG GIÁ VÉ  !";
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);
