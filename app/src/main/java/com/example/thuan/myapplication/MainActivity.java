@@ -29,27 +29,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        String temp = null;
         switch (item.getItemId())
         {
             case R.id.menu_xebus:
-                temp="Xe bus";
+                Intent intent=new Intent(MainActivity.this, XeBusActivity.class);
+                startActivity(intent);
                 break;
             case R.id.menu_tram:
-                temp="Tram xe bus";
+                Intent intent2=new Intent(MainActivity.this, TramActivity.class);
+                startActivity(intent2);
                 break;
             case R.id.menu_giave:
-                temp="Giá Vé ";
                 Intent intent1=new Intent(MainActivity.this, BangGiaVeActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.menu_timkiem:
-                temp="Tìm Kiếm";
-                Intent intent=new Intent(MainActivity.this, AdminActivity.class);
-                startActivity(intent);
+
                 break;
         }
-        //Toast.makeText(MainActivity.this, temp, Toast.LENGTH_LONG).show();
         return super.onOptionsItemSelected(item);
     }
 }

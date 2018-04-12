@@ -5,29 +5,38 @@ package com.example.thuan.myapplication;
  */
 
 public class Bus {
-    private String maXe, tenXe, danhsachDi, danhsachVe;
+
+    private Integer maXe,bus_id;
+    private String tenXe;
 
     public Bus() {
     }
 
-    public Bus(String maXe, String tenXe) {
+    public Bus(Integer maXe, String tenXe) {
         this.maXe = maXe;
         this.tenXe = tenXe;
     }
 
-    public Bus(String maXe, String tenXe, String danhsachDi, String danhsachVe) {
+    public Bus(Integer maXe, Integer bus_id, String tenXe) {
         this.maXe = maXe;
+        this.bus_id = bus_id;
         this.tenXe = tenXe;
-        this.danhsachDi = danhsachDi;
-        this.danhsachVe = danhsachVe;
     }
 
-    public String getMaXe() {
+    public Integer getMaXe() {
         return maXe;
     }
 
-    public void setMaXe(String maXe) {
+    public void setMaXe(Integer maXe) {
         this.maXe = maXe;
+    }
+
+    public Integer getBus_id() {
+        return bus_id;
+    }
+
+    public void setBus_id(Integer bus_id) {
+        this.bus_id = bus_id;
     }
 
     public String getTenXe() {
