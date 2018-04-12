@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tìm kiếm"
+        android:text="Tìm kiếm xe bus"
         android:textSize="30dp"
         android:layout_gravity="center"
         android:layout_marginBottom="5dp"/>
@@ -22,10 +22,9 @@
         tools:layout_editor_absoluteY="5dp">
 
         <AutoCompleteTextView
-            android:paddingLeft="5dp"
-            android:drawableLeft="@drawable/ic_search_black_24dp"
-            android:hint=" Nhập vào ở đây ...."
-            android:id="@+id/autoCompleteTextView"
+            android:paddingLeft="2dp"
+            android:hint=" Nhập vào ở đây nơi đi ...."
+            android:id="@+id/autoCompleteSource"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff"
@@ -33,9 +32,47 @@
             android:textColor="#000"
             android:textSize="24sp" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="5dp">
+
+        <AutoCompleteTextView
+            android:paddingLeft="2dp"
+            android:hint=" Nhập vào ở đây nơi đến ...."
+            android:id="@+id/autoCompleteDestination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:completionThreshold="1"
+            android:textColor="#000"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="5dp">
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:drawableLeft="@drawable/ic_search_black_24dp"
+            android:text="Tìm kiếm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
     <ListView
         android:layout_marginTop="10dp"
-        android:id="@+id/list_view"
+        android:id="@+id/listViewBus"
         android:layout_width="wrap_content"
         android:layout_height="449dp"
         android:background="#fff"

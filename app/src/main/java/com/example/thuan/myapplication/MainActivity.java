@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
                 break;
             case R.id.menu_timkiem:
-
+                Intent intentSearch = new Intent(MainActivity.this, SearchActivity.class);
+                startActivity(intentSearch);
                 break;
         }
         return super.onOptionsItemSelected(item);
