@@ -41,7 +41,7 @@ public class XeBus_TramActivity extends AppCompatActivity {
         Adapter_DuongDi adapter_duongDi=new Adapter_DuongDi(XeBus_TramActivity.this,R.layout.layout_duongdi,listDuongDi);
         lstDuongDi.setAdapter(adapter_duongDi);
 
-//        tim(busID);
+    //tim(busID);
     }
     private void id(){
         lstDuongDi=findViewById(R.id.lstDuongDi);
@@ -57,12 +57,11 @@ public class XeBus_TramActivity extends AppCompatActivity {
                 kq+=so;
                 for(int j=0; j<listStation.size(); j++){
                     if(so == listStation.get(j).getStation_id())
-//                    kq+=listStation.get(j).getName();
+                   // kq+=listStation.get(j).getName();
                         listDuongDi.add(listStation.get(j).getName());
                 }
             }
         }
-
        // txtHienThi.setText(kq);
     }
 
