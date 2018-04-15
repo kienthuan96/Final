@@ -9,7 +9,7 @@
     tools:context=".XeBusActivity">
         <TextView
             android:layout_weight="1"
-            android:text="XE BUS"
+            android:text="DANH SACH XE BUS"
             android:gravity="center"
             android:background="#4CAF50"
             android:textColor="#E8F5E9"
@@ -24,4 +24,5 @@
         android:background="#B9F6CA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
+
 </LinearLayout>

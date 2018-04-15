@@ -14,7 +14,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class SearchActivity extends AppCompatActivity {
-    final String DATABASE_NAME = "mydatabase.sqlite";
+    final String DATABASE_NAME = "csdl.sqlite";
     SQLiteDatabase database;
     ListView listViewBus;
     AutoCompleteTextView source, destination;
@@ -52,7 +52,7 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     private void readDataStation(){
-        database = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        database = DB.initDatabase(this, DATABASE_NAME);
         Cursor cursor = database.rawQuery("SELECT * FROM station",null);
         location.clear();
         for(int i = 0; i < cursor.getCount(); i++){

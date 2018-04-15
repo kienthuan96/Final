@@ -45,7 +45,7 @@ public class btnTraCuuTuyenXe extends AppCompatActivity {
     }
     private void readData(){
         try {
-            database_BangGiaXe = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+            database_BangGiaXe = DB.initDatabase(this, DATABASE_NAME);
             Cursor cursor = database_BangGiaXe.rawQuery("SELECT * FROM BANG_GIAVE", null);
             list.clear(); // để tránh đọc 2 lần 1 row
             for (int i = 0; i < cursor.getCount(); i++) {

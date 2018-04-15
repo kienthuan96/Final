@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:textSize="65px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="65dp" />
     <ListView
         android:id="@+id/lstTram"
         android:layout_weight="2"

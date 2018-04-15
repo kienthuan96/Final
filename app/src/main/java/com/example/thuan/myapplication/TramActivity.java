@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -45,7 +44,7 @@ public class TramActivity extends AppCompatActivity {
         lstTram=findViewById(R.id.lstTram);
     }
     private void readData() {
-        sqLiteDatabase = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        sqLiteDatabase = DB.initDatabase(this, DATABASE_NAME);
         listStation.clear();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM station", null);
         for (int i = 0; i < cursor.getCount(); i++) {

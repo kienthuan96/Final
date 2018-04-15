@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class DBBangGiaXe {
+public class DB {
 
     public static SQLiteDatabase initDatabase(Activity activity, String databaseName){
         try {

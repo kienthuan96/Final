@@ -5,8 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,8 +15,10 @@ public class XeBus_TramActivity extends AppCompatActivity {
     private ArrayList<Bus_Station> listBusStation;
     private ArrayList<Bus> listBus;
     private ArrayList<Station> listStation;
+    private ArrayList<String> listDuongDi;
     SQLiteDatabase sqLiteDatabase;
     TextView txtHienThi;
+    ListView lstDuongDi;
     Integer busID=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +26,28 @@ public class XeBus_TramActivity extends AppCompatActivity {
         setContentView(R.layout.activity_xe_bus__tram);
         id();
 
+        listDuongDi=new ArrayList<>();
         listBusStation=new ArrayList<>();
         listBus=new ArrayList<>();
         listStation=new ArrayList<>();
+
         Intent intent=getIntent();
         Bundle bundle=intent.getBundleExtra("goi");
         busID=bundle.getInt("idbus");
         readData();
         readData1();
         readStation();
+
+        Adapter_DuongDi adapter_duongDi=new Adapter_DuongDi(XeBus_TramActivity.this,R.layout.layout_duongdi,listDuongDi);
+        lstDuongDi.setAdapter(adapter_duongDi);
+
 //        tim(busID);
     }
     private void id(){
-        txtHienThi=findViewById(R.id.txtHienThi);
+        lstDuongDi=findViewById(R.id.lstDuongDi);
+       // txtHienThi=findViewById(R.id.txtHienThi);
     }
+
     private void readStation(){
         String kq="";
         Integer so=0;
@@ -47,16 +57,17 @@ public class XeBus_TramActivity extends AppCompatActivity {
                 kq+=so;
                 for(int j=0; j<listStation.size(); j++){
                     if(so == listStation.get(j).getStation_id())
-                    kq+=listStation.get(j).getName();
+//                    kq+=listStation.get(j).getName();
+                        listDuongDi.add(listStation.get(j).getName());
                 }
             }
         }
 
-        txtHienThi.setText(kq);
+       // txtHienThi.setText(kq);
     }
 
     private void readData() {
-        sqLiteDatabase = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        sqLiteDatabase = DB.initDatabase(this, DATABASE_NAME);
         listBusStation.clear();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM bus_station", null);
         for (int i = 0; i < cursor.getCount(); i++) {
@@ -67,8 +78,9 @@ public class XeBus_TramActivity extends AppCompatActivity {
             listBusStation.add(busStation);
         }
     }
+
     private void readData1(){
-        sqLiteDatabase = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        sqLiteDatabase = DB.initDatabase(this, DATABASE_NAME);
         listStation.clear();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM station", null);
         for (int i = 0; i < cursor.getCount(); i++) {
@@ -82,7 +94,7 @@ public class XeBus_TramActivity extends AppCompatActivity {
     }
 
     private void tim(Integer id){
-        sqLiteDatabase = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        sqLiteDatabase = DB.initDatabase(this, DATABASE_NAME);
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM station WHERE id="+id, null);
         String ten=cursor.getString(1);
         txtHienThi.setText(ten);

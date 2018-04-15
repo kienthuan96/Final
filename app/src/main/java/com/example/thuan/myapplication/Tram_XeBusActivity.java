@@ -5,17 +5,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class Tram_XeBusActivity extends AppCompatActivity {
+
     final String DATABASE_NAME = "csdl.sqlite";
     private ArrayList<Bus_Station> listBusStation;
     private ArrayList<Bus> listBus;
     SQLiteDatabase sqLiteDatabase;
     TextView txtHienThi;
     Integer stationID=0;
+    ListView lstdanhsach;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +53,11 @@ public class Tram_XeBusActivity extends AppCompatActivity {
                 }
             }
         }
-
         txtHienThi.setText(kq);
     }
 
     private void readData() {
-        sqLiteDatabase = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        sqLiteDatabase = DB.initDatabase(this, DATABASE_NAME);
         listBusStation.clear();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM bus_station", null);
         for (int i = 0; i < cursor.getCount(); i++) {
@@ -67,7 +70,7 @@ public class Tram_XeBusActivity extends AppCompatActivity {
     }
 
     private void readData1() {
-        sqLiteDatabase = DBBangGiaXe.initDatabase(this, DATABASE_NAME);
+        sqLiteDatabase = DB.initDatabase(this, DATABASE_NAME);
         listBus.clear();
         Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM bus", null);
         for (int i = 0; i < cursor.getCount(); i++) {

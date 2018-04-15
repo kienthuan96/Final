@@ -5,7 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -45,7 +44,7 @@ public class btnBangGiaVe_Activity extends AppCompatActivity {
 
     }
     private void readData(){
-        database_BangGiaXeMienPhi = DBBangGiaXe.initDatabase(this,DATABASE_NAME);
+        database_BangGiaXeMienPhi = DB.initDatabase(this,DATABASE_NAME);
         Cursor cursor = database_BangGiaXeMienPhi.rawQuery("SELECT * FROM MIENPHI_GIAVE ", null);
         listMP.clear();
         //Chạy vòng for để aadd dữ liệu
